@@ -490,6 +490,14 @@ SIM.UI = {
         view.sidebar.find('#dmgmod').html(mhdmg.toFixed(2) + '% <small>MH</small>' + (player.oh ? space + ohdmg.toFixed(2) + '% <small>OH</small>' : ''));
         view.sidebar.find('#haste').html((player.stats.haste * 100).toFixed(2) + '%');
         view.sidebar.find('#race').text(localStorage.race);
+        if (localStorage.race == 'Human') view.sidebar.find('#race').text('人类');
+        if (localStorage.race == 'Dwarf') view.sidebar.find('#race').text('矮人');
+        if (localStorage.race == 'Gnome') view.sidebar.find('#race').text('侏儒');
+        if (localStorage.race == 'Night Elf') view.sidebar.find('#race').text('暗夜精灵');
+        if (localStorage.race == 'Undead') view.sidebar.find('#race').text('亡灵');
+        if (localStorage.race == 'Orc') view.sidebar.find('#race').text('兽人');
+        if (localStorage.race == 'Tauren') view.sidebar.find('#race').text('牛头人');
+        if (localStorage.race == 'Troll') view.sidebar.find('#race').text('巨魔');
         view.sidebar.find('#sets').empty();
 
         for (let set of sets) {

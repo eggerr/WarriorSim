@@ -96,8 +96,12 @@ SIM.UI = {
             let li = $(this).parent();
             li.addClass('active');
             li.siblings().removeClass('active');
-            var type = li.data('type');
-            if (!type) type = li.parents('[data-type]').data('type');
+
+            var type = li.parents('[data-type]').data('type');
+            if (!type) type = li.data('type');
+
+            console.log("test:" + type);
+            
 
             if (type == "mainhand" || type == "offhand" || type == "twohand") 
                 view.loadWeapons(type);
@@ -611,6 +615,7 @@ SIM.UI = {
     filterGear: function () {
         var view = this;
         var type = view.main.find('nav > ul > li.active').data('type');
+        console.log("filterGear:" + type);
         if (type == "mainhand" || type == "offhand") 
             view.loadWeapons(type);
         else if (type == "custom") 
@@ -621,7 +626,8 @@ SIM.UI = {
 
     loadWeapons: function (type, editmode) {
         var view = this;
-        var filter = view.main.find('nav li.active .filter .active').text();
+        var filter = view.main.find('nav > ul > li.active > ul > li.active').data('type');
+        console.log("load:" + filter);
 
         let table = `<table class="gear ${editmode ? 'editmode' : ''}" data-type="${type}" data-max="1">
                         <thead>

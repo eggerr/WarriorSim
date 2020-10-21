@@ -15,7 +15,7 @@
   <script type="text/javascript" src="dist/js/libs/jquery.tablesorter.widgets.min.js"></script>
   <script type="text/javascript" src="dist/js/libs/Chart.min.js"></script>
 
-  <script type="text/javascript" src="dist/js/classes/player.min.js"></script>
+  <!-- <script type="text/javascript" src="dist/js/classes/player.min.js"></script>
   <script type="text/javascript" src="dist/js/classes/simulation.min.js"></script>
   <script type="text/javascript" src="dist/js/classes/spell.min.js"></script>
   <script type="text/javascript" src="dist/js/classes/weapon.min.js"></script>
@@ -28,10 +28,10 @@
   <script type="text/javascript" src="dist/js/globals.min.js"></script>
   <script type="text/javascript" src="dist/js/settings.min.js"></script>
   <script type="text/javascript" src="dist/js/stats.min.js"></script>
-  <script type="text/javascript" src="dist/js/ui.min.js"></script>
+  <script type="text/javascript" src="dist/js/ui.min.js"></script> -->
 
   <!-- TESTING JS -->
-  <!-- <script type="text/javascript" src="js/classes/player.js"></script>
+  <script type="text/javascript" src="js/classes/player.js"></script>
   <script type="text/javascript" src="js/classes/simulation.js"></script>
   <script type="text/javascript" src="js/classes/spell.js"></script>
   <script type="text/javascript" src="js/classes/weapon.js"></script>
@@ -44,7 +44,7 @@
   <script type="text/javascript" src="js/globals.js"></script>
   <script type="text/javascript" src="js/settings.js"></script>
   <script type="text/javascript" src="js/stats.js"></script>
-  <script type="text/javascript" src="js/ui.js"></script> -->
+  <script type="text/javascript" src="js/ui.js"></script>
 
   <script>var whTooltips = { colorLinks: true, iconizeLinks: false, renameLinks: false, "hide": { "ilvl": false } };</script>
   <script src="https://wow.zamimg.com/widgets/power.js"></script>
@@ -61,52 +61,52 @@ profiles
   <section class="sidebar">
     <div class="bg"></div>
     <div class="character">
-      <p><span id="race">Human</span> Warrior</p>
-      <p>Level 60</p>
+      <p><span id="race">人类</span> 战士</p>
+      <p>等级 60</p>
 
       <ul>
         <li>
-          <label>Attack Power</label>
+          <label>攻击强度</label>
           <span id="ap"></span>
         </li>
         <li>
-          <label>Strength</label>
+          <label>力量</label>
           <span id="str"></span>
         </li>
         <li>
-          <label>Agility</label>
+          <label>敏捷</label>
           <span id="agi"></span>
         </li>
         <li>
-          <label>Hit</label>
+          <label>命中</label>
           <span id="hit"></span>
         </li>
         <li>
-          <label>Skill</label>
+          <label>武器技能</label>
           <span id="skill"></span>
         </li>
         <li>
-          <label>Miss</label>
+          <label>未命中</label>
           <span id="miss"></span>
         </li>
         <li>
-          <label>Crit</label>
+          <label>暴击</label>
           <span id="crit"></span>
         </li>
         <li>
-          <label>Crit Cap</label>
+          <label>暴击上限</label>
           <span id="critcap"></span>
         </li>
         <li>
-          <label>Dmg %</label>
+          <label>伤害百分比</label>
           <span id="dmgmod"></span>
         </li>
         <li>
-          <label>Haste</label>
+          <label>急速</label>
           <span id="haste"></span>
         </li>
         <li>
-          <label>Sets</label>
+          <label>套装</label>
           <span id="sets"></span>
         </li>
       </ul>
@@ -115,10 +115,10 @@ profiles
       <div id="dps"></div>
       <div id="stats"></div>
       <div id="time"></div>
-      <a href="#" class="btn js-dps">DPS</a>
-      <a href="#" class="btn js-table">SHEET DPS</a>
-      <a href="#" class="btn js-stats disabled">STATS</a>
-      <a href="#" class="btn js-settings">SETTINGS</a>
+      <a href="#" class="btn js-dps">计算DPS</a>
+      <a href="#" class="btn js-table">计算表格DPS</a>
+      <a href="#" class="btn js-stats disabled">数据统计</a>
+      <a href="#" class="btn js-settings">设置</a>
     </div>
     <div class="manual"><a href="https://docs.google.com/document/d/1-ugglMDHqIQlEDiE2z9G7zuI-kgyvb2kvgPobWbcxy0/edit" target="_blank">User Manual</a></div>
     <div class="author">made by Guybrush-Golemagg</div>
@@ -129,51 +129,51 @@ profiles
     <div class="wrapper">
 
       <article class="fight">
-        <label>Settings</label>
+        <label>设置</label>
         <ul>
           <li>
-            <label>Level</label>
+            <label>等级</label>
             <input type="text" name="level" value="60" data-numberonly="true" readonly>
           </li>
           <li>
-            <label>Race</label>
+            <label>种族</label>
             <select dir="rtl" name="race">
-              <option value="Human">Human</option>
-              <option value="Dwarf">Dwarf</option>
-              <option value="Gnome">Gnome</option>
-              <option value="Night Elf">Night Elf</option>
-              <option value="Undead">Undead</option>
-              <option value="Orc">Orc</option>
-              <option value="Tauren">Tauren</option>
-              <option value="Troll">Troll</option>
+              <option value="Human">人类</option>
+              <option value="Dwarf">矮人</option>
+              <option value="Gnome">侏儒</option>
+              <option value="Night Elf">暗夜精灵</option>
+              <option value="Undead">亡灵</option>
+              <option value="Orc">兽人</option>
+              <option value="Tauren">牛头人</option>
+              <option value="Troll">巨魔</option>
             </select>
           </li>
           <li>
-            <label>Simulations</label>
+            <label>模拟次数</label>
             <input type="text" name="simulations" value="50000" data-numberonly="true">
           </li>
           <li>
-            <label>Fight Duration (min)</label>
+            <label>战斗时长 (最小值)</label>
             <input type="text" name="timesecsmin" value="50" data-numberonly="true">
           </li>
           <li>
-            <label>Fight Duration (max)</label>
+            <label>战斗时长 (最大值)</label>
             <input type="text" name="timesecsmax" value="60" data-numberonly="true">
           </li>
           <li>
-            <label>Execute phase percentage</label>
+            <label>斩杀阶段百分比</label>
             <input type="text" name="executeperc" value="20" data-numberonly="true">
           </li>
           <li>
-            <label>Initial Rage</label>
+            <label>初始怒气值</label>
             <input type="text" name="startrage" value="0" data-numberonly="true">
           </li>
           <li>
-            <label>Target Level</label>
+            <label>目标等级</label>
             <input type="text" name="targetlevel" value="63" data-numberonly="true" readonly>
           </li>
           <li>
-            <label>Target Resistance</label>
+            <label>目标抗性</label>
             <input type="text" name="targetresistance" value="24" data-numberonly="true">
           </li>
           <li style="display: none;">
@@ -185,25 +185,25 @@ profiles
             <input type="text" name="adjacentlevel" value="60" data-numberonly="true">
           </li>
           <li>
-            <label>Target Armor</label>
+            <label>目标护甲</label>
             <input type="text" name="targetarmor" value="336" data-numberonly="true">
           </li>
           <li>
-            <label>AQ Books</label>
+            <label>AQ 技能书</label>
             <select dir="rtl" name="aqbooks">
               <option value="No">No</option>
-              <option value="Yes">Yes</option>
+              <option value="Yes" selected="selected">Yes</option>
             </select>
           </li>
           <li>
-            <label>Weapon Damage RNG</label>
+            <label>武器伤害真随机</label>
             <select dir="rtl" name="weaponrng">
               <option value="Yes">Yes</option>
               <option value="No">No</option>
             </select>
           </li>
           <li>
-            <label>Spell Damage</label>
+            <label>法术伤害</label>
             <input type="text" name="spelldamage" value="0" data-numberonly="true">
           </li>
         </ul>
@@ -214,27 +214,27 @@ profiles
       </article>
 
       <article class="rotation">
-        <label>Rotation</label>
+        <label>输出循环</label>
       </article>
 
       <article class="talents">
-        <label>Talents</label>
+        <label>天赋</label>
       </article>
 
       <article class="filter">
-        <label>Gear Filter</label>
+        <label>装备过滤</label>
         <ul class="sources">
-          <li data-id="quest">Quest</li>
-          <li data-id="crafting">Crafting</li>
-          <li data-id="dungeon">Dungeon</li>
-          <li data-id="onyxia">Onyxia</li>
-          <li data-id="mc">Molten Core</li>
-          <li data-id="bwl">Blackwing Lair</li>
-          <li data-id="zg">Zul'Gurub</li>
-          <li data-id="aq20">AQ20</li>
-          <li data-id="aq40">AQ40</li>
-          <li data-id="naxx">Naxxramas</li>
-          <li data-id="worldboss">World Boss</li>
+          <li data-id="quest">任务</li>
+          <li data-id="crafting">制造</li>
+          <li data-id="dungeon">5人副本</li>
+          <li data-id="onyxia">奥妮克希亚</li>
+          <li data-id="mc">熔火之心</li>
+          <li data-id="bwl">黑翼之巢</li>
+          <li data-id="zg">祖尔格拉布</li>
+          <li data-id="aq20">安其拉废墟</li>
+          <li data-id="aq40">安其拉神殿</li>
+          <li data-id="naxx">纳克萨玛斯</li>
+          <li data-id="worldboss">世界BOSS</li>
           <li data-id="pvp">PvP</li>
           <li data-id="other">Other</li>
         </ul>
@@ -256,23 +256,23 @@ profiles
     <div class="wrapper">
 
       <article>
-        <label>Fight Details</label>
+        <label>战斗细节</label>
         <div class="container-table"></div>
       </article>
 
       <article>
-        <label>Damage</label>
+        <label>伤害占比</label>
         <div class="container-dmg"><canvas></canvas></div>
         <div class="legend"></div>
       </article>
 
       <article>
-        <label>Aura Uptime</label>
+        <label>光环持续时间</label>
         <div class="container-aura"><canvas></canvas></div>
       </article>
 
       <article>
-        <label>DPS Spread</label>
+        <label>DPS 分布</label>
         <div class="container-spread"><canvas></canvas></div>
       </article>
 
@@ -283,66 +283,66 @@ profiles
     <nav>
       <ul>
         <li data-type="mainhand" class="active">
-          <p>Main Hand</p>
+          <p>主手武器</p>
           <ul class="filter">
-            <li class="active"><p>All</p></li>
-            <li><p>Axe</p></li>
-            <li><p>Dagger</p></li>
-            <li><p>Fist</p></li>
-            <li><p>Mace</p></li>
-            <li><p>Sword</p></li>
-            <li><p>Mace & Sword</p></li>
-            <li><p>Axe, Dagger & Sword</p></li>
+            <li data-type="All" class="active"><p>所有</p></li>
+            <li data-type="Axe"><p>单手斧</p></li>
+            <li data-type="Dagger"><p>匕首</p></li>
+            <li data-type="Fist"><p>拳套</p></li>
+            <li data-type="Mace"><p>单手锤</p></li>
+            <li data-type="Sword"><p>单手剑</p></li>
+            <li data-type="Mace & Sword"><p>单手锤和单手剑(人类）</p></li>
+            <li data-type="Axe, Dagger & Sword"><p>单手斧和单手剑和匕首（剑师护手）</p></li>
           </ul>
         </li>
         <li data-type="offhand">
-          <p>Off Hand</p>
+          <p>副手武器</p>
           <ul class="filter">
-            <li class="active"><p>All</p></li>
-            <li><p>Axe</p></li>
-            <li><p>Dagger</p></li>
-            <li><p>Fist</p></li>
-            <li><p>Mace</p></li>
-            <li><p>Sword</p></li>
-            <li><p>Mace & Sword</p></li>
-            <li><p>Axe, Dagger & Sword</p></li>
+            <li data-type="All" class="active"><p>所有</p></li>
+            <li data-type="Axe"><p>单手斧</p></li>
+            <li data-type="Dagger"><p>匕首</p></li>
+            <li data-type="Fist"><p>拳套</p></li>
+            <li data-type="Mace"><p>单手锤</p></li>
+            <li data-type="Sword"><p>单手剑</p></li>
+            <li data-type="Mace & Sword"><p>单手锤和单手剑（人类）</p></li>
+            <li data-type="Axe, Dagger & Sword"><p>单手斧和单手剑和匕首（剑师护手）</p></li>
           </ul>
         </li>
         <li data-type="twohand">
-          <p>Two Hand</p>
+          <p>双手武器</p>
           <ul class="filter">
-            <li class="active"><p>All</p></li>
-            <li><p>Axe</p></li>
-            <li><p>Mace</p></li>
-            <li><p>Polearm</p></li>
-            <li><p>Sword</p></li>
-            <li><p>Mace & Sword</p></li>
+            <li data-type="All"  class="active"><p>所有</p></li>
+            <li data-type="Axe" ><p>双手斧</p></li>
+            <li data-type="Mace" ><p>双手锤</p></li>
+            <li data-type="Polearm" ><p>长柄武器</p></li>
+            <li data-type="Sword" ><p>双手剑</p></li>
+            <li data-type="Mace & Sword" ><p>双手剑和双手锤（人类）</p></li>
           </ul>
         </li>
-        <li data-type="head"><p>Head</p></li>
-        <li data-type="neck"><p>Neck</p></li>
-        <li data-type="shoulder"><p>Shoulder</p></li>
-        <li data-type="back"><p>Back</p></li>
-        <li data-type="chest"><p>Chest</p></li>
-        <li data-type="wrist"><p>Wrist</p></li>
-        <li data-type="hands"><p>Hands</p></li>
-        <li data-type="waist"><p>Waist</p></li>
-        <li data-type="legs"><p>Legs</p></li>
-        <li data-type="feet"><p>Feet</p></li>
-        <li data-type="finger1"><p>Ring 1</p></li>
-        <li data-type="finger2"><p>Ring 2</p></li>
-        <li data-type="trinket1"><p>Trinket 1</p></li>
-        <li data-type="trinket2"><p>Trinket 2</p></li>
-        <li data-type="ranged"><p>Ranged</p></li>
-        <li data-type="custom"><p>Custom</p></li>
+        <li data-type="head"><p>头部</p></li>
+        <li data-type="neck"><p>颈部</p></li>
+        <li data-type="shoulder"><p>肩膀</p></li>
+        <li data-type="back"><p>披风</p></li>
+        <li data-type="chest"><p>胸部</p></li>
+        <li data-type="wrist"><p>手腕</p></li>
+        <li data-type="hands"><p>手套</p></li>
+        <li data-type="waist"><p>腰部</p></li>
+        <li data-type="legs"><p>腿部</p></li>
+        <li data-type="feet"><p>脚部</p></li>
+        <li data-type="finger1"><p>戒指1</p></li>
+        <li data-type="finger2"><p>戒指2</p></li>
+        <li data-type="trinket1"><p>饰品1</p></li>
+        <li data-type="trinket2"><p>饰品2</p></li>
+        <li data-type="ranged"><p>远程武器</p></li>
+        <li data-type="custom"><p>自定义</p></li>
       </ul>
     </nav>
 
     <div class="table-container"></div>
     <div class="button-container">
-      <a href="#" class="btn js-editmode">SHOW / HIDE ROWS</a>
-      <a href="#" class="btn js-enchant">ENCHANTS DPS</a>
-      <a href="#" class="btn js-table">GEAR DPS</a>
+      <a href="#" class="btn js-editmode">显示 / 隐藏 装备</a>
+      <a href="#" class="btn js-enchant">计算附魔DPS</a>
+      <a href="#" class="btn js-table">计算装备DPS</a>
     </div>
     
     <progress value="0" max="100"></progress>

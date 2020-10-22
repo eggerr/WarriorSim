@@ -512,7 +512,7 @@ SIM.UI = {
             if (counter == 0)
                 continue;
             if (counter >= set.bonus[0].count)
-                view.sidebar.find('#sets').append(`<a href="https://classic.wowhead.com/item-set=${set.id}" class="q4">${set.name} (${counter})</a><br />`);
+                view.sidebar.find('#sets').append(`<a href="https://cn.classic.wowhead.com/item-set=${set.id}" class="q4">${set.name} (${counter})</a><br />`);
         }
     },
 
@@ -633,20 +633,20 @@ SIM.UI = {
                         <thead>
                             <tr>
                                 ${editmode ? '<th></th>' : ''}
-                                <th>Name</th>
-                                <th>Source</th>
-                                <th>Sta</th>
-                                <th>Str</th>
-                                <th>Agi</th>
-                                <th>AP</th>
-                                <th>Crit</th>
-                                <th>Hit</th>
+                                <th>名称</th>
+                                <th>来源</th>
+                                <th>耐力</th>
+                                <th>力量</th>
+                                <th>敏捷</th>
+                                <th>攻强</th>
+                                <th>暴击</th>
+                                <th>命中</th>
                                 <th>Min</th>
                                 <th>Max</th>
-                                <th>Speed</th>
-                                <th>Skill</th>
-                                <th>Type</th>
-                                <th>PPM</th>
+                                <th>速度</th>
+                                <th>武器技能</th>
+                                <th>种类</th>
+                                <th>每分钟触发</th>
                                 <th>DPS</th>
                             </tr>
                         </thead>
@@ -682,7 +682,7 @@ SIM.UI = {
                 
             table += `<tr data-id="${item.id}" data-name="${item.name}" class="${item.selected ? 'active' : ''} ${item.hidden ? 'hidden' : ''}">
                         ${editmode ? '<td class="hide">' + (item.hidden ? eyesvghidden : eyesvg) + '</td>' : ''}
-                        <td><a href="https://classic.wowhead.com/item=${tooltip}${rand}"></a>${item.name}</td>
+                        <td><a href="https://cn.classic.wowhead.com/item=${tooltip}${rand}"></a>${item.name}</td>
                         <td>${item.source}</td>
                         <td>${item.sta || ''}</td>
                         <td>${item.str || ''}</td>
@@ -732,16 +732,16 @@ SIM.UI = {
                         <thead>
                             <tr>
                                 ${editmode ? '<th></th>' : ''}
-                                <th>Name</th>
-                                <th>Source</th>
-                                <th>Sta</th>
-                                <th>Str</th>
-                                <th>Agi</th>
-                                <th>AP</th>
-                                <th>Hit</th>
-                                <th>Crit</th>
-                                <th>Skill</th>
-                                <th>Type</th>
+                                <th>名称</th>
+                                <th>来源</th>
+                                <th>耐力</th>
+                                <th>力量</th>
+                                <th>敏捷</th>
+                                <th>攻强</th>
+                                <th>命中</th>
+                                <th>暴击</th>
+                                <th>武器技能</th>
+                                <th>种类</th>
                                 <th>DPS</th>
                             </tr>
                         </thead>
@@ -772,7 +772,7 @@ SIM.UI = {
 
             table += `<tr data-id="${item.id}" class="${item.selected ? 'active' : ''} ${item.hidden ? 'hidden' : ''}">
                         ${editmode ? '<td class="hide">' + (item.hidden ? eyesvghidden : eyesvg) + '</td>' : ''}
-                        <td><a href="https://classic.wowhead.com/item=${tooltip}${rand}"></a>${item.name}</td>
+                        <td><a href="https://cn.classic.wowhead.com/item=${tooltip}${rand}"></a>${item.name}</td>
                         <td>${item.source || ''}</td>
                         <td>${item.sta || ''}</td>
                         <td>${item.str || ''}</td>
@@ -819,13 +819,13 @@ SIM.UI = {
                         <thead>
                             <tr>
                                 ${editmode ? '<th></th>' : ''}
-                                <th>Name</th>
-                                <th>Str</th>
-                                <th>Agi</th>
-                                <th>AP</th>
-                                <th>Hit</th>
-                                <th>Crit</th>
-                                <th>Skill</th>
+                                <th>名称</th>
+                                <th>力量</th>
+                                <th>敏捷</th>
+                                <th>攻强</th>
+                                <th>命中</th>
+                                <th>暴击</th>
+                                <th>武器技能</th>
                                 <th>DPS</th>
                             </tr>
                         </thead>
@@ -866,14 +866,14 @@ SIM.UI = {
                         <thead>
                             <tr>
                                 ${editmode ? '<th></th>' : ''}
-                                <th>Enchant</th>
-                                <th>Str</th>
-                                <th>Agi</th>
-                                <th>AP</th>
-                                <th>Haste</th>
-                                <th>Crit</th>
-                                <th>Damage</th>
-                                <th>PPM</th>
+                                <th>附魔</th>
+                                <th>力量</th>
+                                <th>敏捷</th>
+                                <th>攻强</th>
+                                <th>急速</th>
+                                <th>暴击</th>
+                                <th>伤害</th>
+                                <th>每分钟触发</th>
                                 <th>DPS</th>
                             </tr>
                         </thead>
@@ -888,7 +888,7 @@ SIM.UI = {
 
             table += `<tr data-id="${item.id}" data-temp="${item.temp || false}" class="${item.selected ? 'active' : ''} ${item.hidden ? 'hidden' : ''}">
                         ${editmode ? '<td class="hide">' + (item.hidden ? eyesvghidden : eyesvg) + '</td>' : ''}
-                        <td><a href="https://classic.wowhead.com/${item.spellid ? 'spell' : 'item'}=${item.id}"></a>${item.name}</td>
+                        <td><a href="https://cn.classic.wowhead.com/${item.spellid ? 'spell' : 'item'}=${item.id}"></a>${item.name}</td>
                         <td>${item.str || ''}</td>
                         <td>${item.agi || ''}</td>
                         <td>${item.ap || ''}</td>

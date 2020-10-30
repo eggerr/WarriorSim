@@ -55,7 +55,17 @@ SIM.STATS = {
         for (let name in sim.player.auras) {
             let aura = sim.player.auras[name];
             if (!aura.uptime) continue;
-            view.auradata.labels.push(aura.name);
+            
+            let aura_name_cn = aura.name;
+            if (aura_name_cn == 'Crusader (MH)') aura_name_cn = '十字军（主手）';
+            if (aura_name_cn == 'Crusader (OH)') aura_name_cn = '十字军（副手）';
+            if (aura_name_cn == 'Death Wish') aura_name_cn = '死亡之愿';
+            if (aura_name_cn == 'Recklessness') aura_name_cn = '鲁莽';
+            if (aura_name_cn == 'Bloodrage') aura_name_cn = '血腥狂暴';
+            if (aura_name_cn == 'Flurry') aura_name_cn = '乱舞';
+            if (aura_name_cn == 'Mighty Rage Potion') aura_name_cn = '强效怒气药水';
+            
+            view.auradata.labels.push(aura_name_cn);
             data.push((aura.uptime / sim.totalduration / 10).toFixed(2));
             colors.push(view.colors[counter % view.colors.length]);
             counter++;
@@ -77,19 +87,24 @@ SIM.STATS = {
         for (let name in sim.player.spells) {
             let spell = sim.player.spells[name];
             if (!spell.totaldmg) continue;
-            view.dmgdata.labels.push(spell.name);
+            let spell_name_cn = spell.name;
+            if (spell_name_cn == 'Bloodthirst') spell_name_cn = '嗜血';
+            if (spell_name_cn == 'Heroic Strike') spell_name_cn = '英勇打击';
+            if (spell_name_cn == 'Whirlwind') spell_name_cn = '旋风斩';
+            if (spell_name_cn == 'Execute') spell_name_cn = '斩杀';
+            view.dmgdata.labels.push(spell_name_cn);
             data.push((spell.totaldmg / sim.totalduration).toFixed(2));
             colors.push(view.colors[counter % view.colors.length]);
             counter++;
         }
 
         // MH
-        view.dmgdata.labels.push('Main Hand');
+        view.dmgdata.labels.push('主手');
         data.push((sim.player.mh.totaldmg / sim.totalduration).toFixed(2));
         colors.push(view.colors[counter % view.colors.length]);
         counter++;
         if (sim.player.mh.totalprocdmg) {
-            view.dmgdata.labels.push('Main Hand Proc');
+            view.dmgdata.labels.push('主手触发');
             data.push((sim.player.mh.totalprocdmg / sim.totalduration).toFixed(2));
             colors.push(view.colors[counter % view.colors.length]);
             counter++;
@@ -97,12 +112,12 @@ SIM.STATS = {
 
         // OH
         if (sim.player.oh) {
-            view.dmgdata.labels.push('Off Hand');
+            view.dmgdata.labels.push('副手');
             data.push((sim.player.oh.totaldmg / sim.totalduration).toFixed(2));
             colors.push(view.colors[counter % view.colors.length]);
             counter++;
             if (sim.player.oh.totalprocdmg) {
-                view.dmgdata.labels.push('Off Hand Proc');
+                view.dmgdata.labels.push('副手触发');
                 data.push((sim.player.oh.totalprocdmg / sim.totalduration).toFixed(2));
                 colors.push(view.colors[counter % view.colors.length]);
                 counter++;
@@ -166,7 +181,7 @@ SIM.STATS = {
                 },
                 title: {
                     display: false,
-                    text: 'Aura Uptime',
+                    text: '光环持续时间',
                     fontColor: '#ccc',
                     position: 'bottom'
                 },
@@ -259,20 +274,20 @@ SIM.STATS = {
     buildTable: function (sim) {
         var view = this;
         view.table.empty();
-        let html = '<table><thead><tr><th>Action</th><th>Hit %</th><th>Crit %</th><th>Miss %</th><th>Dodge %</th><th>Glance %</th><th>Uses</th><th>DPS</th></tr></thead><tbody>';
+        let html = '<table><thead><tr><th>技能</th><th>普通攻击 %</th><th>暴击 %</th><th>未命中 %</th><th>躲闪 %</th><th>偏斜 %</th><th>次数</th><th>DPS</th></tr></thead><tbody>';
 
 
         let i = sim.iterations;
         let data = sim.player.mh.data;
         let total = data.reduce((a, b) => a + b, 0);
         let dps = (sim.player.mh.totaldmg / sim.totalduration).toFixed(2);
-        html += `<tr><td>Main Hand</td><td>${(data[0] / total * 100).toFixed(2)}</td><td>${(data[3] / total * 100).toFixed(2)}</td><td>${(data[1] / total * 100).toFixed(2)}</td><td>${(data[2] / total * 100).toFixed(2)}</td><td>${(data[4] / total * 100).toFixed(2)}</td><td>${(total / i).toFixed(2)}</td><td>${dps}</td></tr>`;
+        html += `<tr><td>主手</td><td>${(data[0] / total * 100).toFixed(2)}</td><td>${(data[3] / total * 100).toFixed(2)}</td><td>${(data[1] / total * 100).toFixed(2)}</td><td>${(data[2] / total * 100).toFixed(2)}</td><td>${(data[4] / total * 100).toFixed(2)}</td><td>${(total / i).toFixed(2)}</td><td>${dps}</td></tr>`;
 
         if (sim.player.oh) {
             data = sim.player.oh.data;
             total = data.reduce((a, b) => a + b, 0);
             dps = (sim.player.oh.totaldmg / sim.totalduration).toFixed(2);
-            html += `<tr><td>Off Hand</td><td>${(data[0] / total * 100).toFixed(2)}</td><td>${(data[3] / total * 100).toFixed(2)}</td><td>${(data[1] / total * 100).toFixed(2)}</td><td>${(data[2] / total * 100).toFixed(2)}</td><td>${(data[4] / total * 100).toFixed(2)}</td><td>${(total / i).toFixed(2)}</td><td>${dps}</td></tr>`;
+            html += `<tr><td>副手</td><td>${(data[0] / total * 100).toFixed(2)}</td><td>${(data[3] / total * 100).toFixed(2)}</td><td>${(data[1] / total * 100).toFixed(2)}</td><td>${(data[2] / total * 100).toFixed(2)}</td><td>${(data[4] / total * 100).toFixed(2)}</td><td>${(total / i).toFixed(2)}</td><td>${dps}</td></tr>`;
         }
         
         for (let name in sim.player.spells) {
@@ -281,6 +296,11 @@ SIM.STATS = {
             let total = data.reduce((a, b) => a + b, 0);
             if (!total) continue;
             let dps = (sim.player.spells[name].totaldmg / sim.totalduration).toFixed(2);
+            if (n == 'Bloodthirst') n = '嗜血';
+            if (n == 'Heroic Strike') n = '英勇打击';
+            if (n == 'Execute') n = '斩杀';
+            if (n == 'Whirlwind') n = '旋风斩';
+            if (n == 'Sunder Armor') n = '破甲攻击';
             html += `<tr><td>${n}</td><td>${(data[0] / total * 100).toFixed(2)}</td><td>${(data[3] / total * 100).toFixed(2)}</td><td>${(data[1] / total * 100).toFixed(2)}</td><td>${(data[2] / total * 100).toFixed(2)}</td><td>${(data[4] / total * 100).toFixed(2)}</td><td>${(total / i).toFixed(2)}</td><td>${dps}</td></tr>`;
         }
 

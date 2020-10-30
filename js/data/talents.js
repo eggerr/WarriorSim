@@ -1,6 +1,6 @@
 var talents = [
    {
-      n: 'Arms',
+      n: '武器',
       t: [
          {
             i: 124,
@@ -393,7 +393,7 @@ var talents = [
       ]
    },
    {
-      n: 'Fury',
+      n: '狂怒',
       t: [
          {
             i: 158,
@@ -767,7 +767,7 @@ var talents = [
       ]
    },
    {
-      n: 'Protection',
+      n: '防护',
       t: [
          {
             i: 1601,

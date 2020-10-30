@@ -54,7 +54,7 @@ SIM.SETTINGS = {
             if (talent.c >= talent.m) $(this).addClass('maxed');
             if (talent.enable)
                 $('.rotation [data-id="' + talent.enable + '"]').removeClass('hidden');
-            $(this).find('a').attr('href', 'https://classic.wowhead.com/spell=' + talent.s[talent.c == 0 ? 0 : talent.c - 1]);
+            $(this).find('a').attr('href', 'https://cn.classic.wowhead.com/spell=' + talent.s[talent.c == 0 ? 0 : talent.c - 1]);
             SIM.UI.updateSession();
             SIM.UI.updateSidebar();
         });
@@ -71,7 +71,7 @@ SIM.SETTINGS = {
                     if (spell.id == talent.enable)
                         spell.active = false;
             }
-            $(this).find('a').attr('href', 'https://classic.wowhead.com/spell=' + talent.s[talent.c == 0 ? 0 : talent.c - 1]);
+            $(this).find('a').attr('href', 'https://cn.classic.wowhead.com/spell=' + talent.s[talent.c == 0 ? 0 : talent.c - 1]);
             SIM.UI.updateSession();
             SIM.UI.updateSidebar();
         });
@@ -176,33 +176,33 @@ SIM.SETTINGS = {
             let tooltip = spell.id == 115671 ? 11567 : spell.id;
             let div = $(`<div data-id="${spell.id}" class="spell"><div class="icon">
             <img src="dist/img/${spell.iconname.toLowerCase()}.jpg " alt="${spell.name}">
-            <a href="https://classic.wowhead.com/spell=${tooltip}" class="wh-tooltip"></a>
+            <a href="https://cn.classic.wowhead.com/spell=${tooltip}" class="wh-tooltip"></a>
             </div><ul class="options"></ul></div>`);
 
             if (spell.timetoend !== undefined)
-                div.find('.options').append(`<li>Use on last <input type="text" name="timetoend" value="${spell.timetoend}" data-numberonly="true" /> seconds</li>`);
+                div.find('.options').append(`<li>最后 <input type="text" name="timetoend" value="${spell.timetoend}" data-numberonly="true" /> 秒 使用</li>`);
             if (spell.minrage !== undefined)
-                div.find('.options').append(`<li>Use when above <input type="text" name="minrage" value="${spell.minrage}" data-numberonly="true" /> rage</li>`);
+                div.find('.options').append(`<li>怒气值大于 <input type="text" name="minrage" value="${spell.minrage}" data-numberonly="true" /> 时使用</li>`);
             if (spell.maxrage !== undefined)
-                div.find('.options').append(`<li>Use when below <input type="text" name="maxrage" value="${spell.maxrage}" data-numberonly="true" /> rage</li>`);
+                div.find('.options').append(`<li>怒气低于 <input type="text" name="maxrage" value="${spell.maxrage}" data-numberonly="true" /> 时使用</li>`);
             if (spell.globals !== undefined)
-                div.find('.options').append(`<li>Use on first <input type="text" name="globals" value="${spell.globals}" data-numberonly="true" /> globals</li>`);
+                div.find('.options').append(`<li>仅第一个CD使用 <input type="text" name="globals" value="${spell.globals}" data-numberonly="true" /> 一次</li>`);
             if (spell.maincd !== undefined)
-                div.find('.options').append(`<li>BT/MS cooldown >= <input type="text" name="maincd" value="${spell.maincd}" data-numberonly="true" /> secs</li>`);
+                div.find('.options').append(`<li>嗜血/致死打击的CD大于 <input type="text" name="maincd" value="${spell.maincd}" data-numberonly="true" /> 秒</li>`);
             if (spell.crusaders !== undefined)
-                div.find('.options').append(`<li>when <input type="text" name="crusaders" value="${spell.crusaders}" data-numberonly="true" /> crusaders are up</li>`);
+                div.find('.options').append(`<li>当激活 <input type="text" name="crusaders" value="${spell.crusaders}" data-numberonly="true" /> 个十字军时</li>`);
             if (spell.haste !== undefined)
-                div.find('.options').append(`<li>Attack speed at <input type="text" name="haste" value="${spell.haste}" data-numberonly="true" /> %</li>`);
+                div.find('.options').append(`<li>攻击速度 <input type="text" name="haste" value="${spell.haste}" data-numberonly="true" /> %</li>`);
             if (spell.priorityap !== undefined)
-                div.find('.options').append(`<li>Prioritize BT/MS when >= <input style="width:25px" type="text" name="priorityap" value="${spell.priorityap}" data-numberonly="true" /> AP</li>`);
+                div.find('.options').append(`<li>当攻击强度大于 <input style="width:25px" type="text" name="priorityap" value="${spell.priorityap}" data-numberonly="true" /> 时优先使用致死打击/嗜血</li>`);
             if (spell.id == 23255)
-                div.find('.options').append(`<li>Include Deep Wounds damage</li>`);
+                div.find('.options').append(`<li>包含重伤伤害</li>`);
             if (spell.id == 11605)
-                div.find('.options').append(`<li>Slam macro with MH swing</li>`);
+                div.find('.options').append(`<li>使用主手猛击宏</li>`);
             if (spell.id == 2687)
-                div.find('.options').append('<li>Used on cooldown below 80 rage</li>');
+                div.find('.options').append('<li>80怒以下有CD时使用</li>');
             if (spell.reaction !== undefined)
-                div.find('.options').append(`<li><input style="width:25px" type="text" name="reaction" value="${spell.reaction}" data-numberonly="true" /> ms reaction time</li>`);
+                div.find('.options').append(`<li><input style="width:25px" type="text" name="reaction" value="${spell.reaction}" data-numberonly="true" /> 毫秒反应时间</li>`);
             if (spell.hidden)
                 div.addClass('hidden');
             if (localStorage.race == "Orc" && spell.id == 20572)
@@ -213,33 +213,33 @@ SIM.SETTINGS = {
                 div.addClass('active');
 
             if (spell.maincd !== undefined) {
-                div.find('.options li:first-of-type').append(' or');
+                div.find('.options li:first-of-type').append(' 或者');
             }
 
             if (spell.crusaders !== undefined) {
-                div.find('.options li:first-of-type').append(' or');
+                div.find('.options li:first-of-type').append(' 或者');
             }
 
             if (spell.id == 11567) {
                 div.find('.options').empty();
-                div.find('.options').append(`<li>Queue when above <input type="text" name="minrage" value="30" data-numberonly="true"> rage or BT/MS cooldown >= <input type="text" name="maincd" value="4" data-numberonly="true"> secs</li>`);
-                div.find('.options').append(`<li>Unqueue if below <input type="text" name="unqueue" value="${spell.unqueue}" data-numberonly="true" /> rage, <input type="text" name="unqueuetimer" value="${spell.unqueuetimer}" data-numberonly="true" /> ms before MH swing</li>`);
-                div.find('.options').append(`<li><input style="width:25px" type="text" name="reaction" value="${spell.reaction}" data-numberonly="true" /> ms reaction time</li>`);
+                div.find('.options').append(`<li>当怒气大于 <input type="text" name="minrage" value="30" data-numberonly="true"> 或致死打击/嗜血的CD大于 <input type="text" name="maincd" value="4" data-numberonly="true"> 秒时使用，</li>`);
+                div.find('.options').append(`<li>如果怒气小于 <input type="text" name="unqueue" value="${spell.unqueue}" data-numberonly="true" /> 则在主手攻击前<input type="text" name="unqueuetimer" value="${spell.unqueuetimer}" data-numberonly="true" />毫秒取消，</li>`);
+                div.find('.options').append(`<li><input style="width:25px" type="text" name="reaction" value="${spell.reaction}" data-numberonly="true" /> 毫秒反应时间</li>`);
             }
 
             if (spell.id == 115671) {
                 div.find('.options').empty();
-                div.find('.options').before('<label>Execute phase HS:</label>');
-                div.find('.options').append(`<li>Queue when above <input type="text" name="minrage" value="30" data-numberonly="true"> rage</li>`);
-                div.find('.options').append(`<li>Unqueue if below <input type="text" name="unqueue" value="${spell.unqueue}" data-numberonly="true" /> rage, <input type="text" name="unqueuetimer" value="${spell.unqueuetimer}" data-numberonly="true" /> ms before MH swing</li>`);
-                div.find('.options').append(`<li><input style="width:25px" type="text" name="reaction" value="${spell.reaction}" data-numberonly="true" /> ms reaction time</li>`);
+                div.find('.options').before('<label>斩杀阶段的英勇打击:</label>');
+                div.find('.options').append(`<li>当怒气大于 <input type="text" name="minrage" value="30" data-numberonly="true"> 时使用，</li>`);
+                div.find('.options').append(`<li>如果怒气小于 <input type="text" name="unqueue" value="${spell.unqueue}" data-numberonly="true" /> 则在主手攻击前<input type="text" name="unqueuetimer" value="${spell.unqueuetimer}" data-numberonly="true" /> 毫秒取消，</li>`);
+                div.find('.options').append(`<li><input style="width:25px" type="text" name="reaction" value="${spell.reaction}" data-numberonly="true" /> 毫秒反应时间</li>`);
             }
 
             if (spell.id == 11585) {
                 div.find('.options').empty();
-                div.find('.options').append(`<li>Use when below <input type="text" name="maxrage" value="${spell.maxrage}" data-numberonly="true" /> rage and</li>`);
-                div.find('.options').append(`<li>BT/MS cooldown >= <input type="text" name="maincd" value="${spell.maincd}" data-numberonly="true" /> secs</li>`);
-                div.find('.options').append(`<li><input style="width:25px" type="text" name="reaction" value="${spell.reaction}" data-numberonly="true" /> ms reaction time</li>`);
+                div.find('.options').append(`<li>当怒气小于 <input type="text" name="maxrage" value="${spell.maxrage}" data-numberonly="true" /> 时，并且</li>`);
+                div.find('.options').append(`<li>嗜血/致死打击CD大于 <input type="text" name="maincd" value="${spell.maincd}" data-numberonly="true" /> 秒，</li>`);
+                div.find('.options').append(`<li><input style="width:25px" type="text" name="reaction" value="${spell.reaction}" data-numberonly="true" /> 毫秒反应时间</li>`);
             }
 
             view.rotation.append(div);
@@ -258,7 +258,7 @@ SIM.SETTINGS = {
             let disable = buff.disableSpell ? `data-disable-spell="${buff.disableSpell}"` : '';
             let html = `<div data-id="${buff.id}" class="icon ${active}" ${group} ${disable}>
                             <img src="dist/img/${buff.iconname.toLowerCase()}.jpg " alt="${buff.name}">
-                            <a href="https://classic.wowhead.com/${wh}=${buff.id}" class="wh-tooltip"></a>
+                            <a href="https://cn.classic.wowhead.com/${wh}=${buff.id}" class="wh-tooltip"></a>
                         </div>`;
             view.buffs.append(html);
         }
@@ -275,7 +275,7 @@ SIM.SETTINGS = {
                 if (talent.c >= talent.m) div.addClass('maxed');
                 if (talent.enable && talent.c == 0) view.rotation.find('[data-id="' + talent.enable + '"]').addClass('hidden');
                 if (talent.enable && talent.c > 0) view.rotation.find('[data-id="' + talent.enable + '"]').removeClass('hidden');
-                div.append('<a href="https://classic.wowhead.com/spell=' + talent.s[talent.c == 0 ? 0 : talent.c - 1] + '" class="wh-tooltip"></a>');
+                div.append('<a href="https://cn.classic.wowhead.com/spell=' + talent.s[talent.c == 0 ? 0 : talent.c - 1] + '" class="wh-tooltip"></a>');
                 table.find('tr').eq(talent.y).children().eq(talent.x).append(div);
             }
             view.talents.append(table);
